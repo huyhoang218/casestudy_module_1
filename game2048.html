@@ -6,7 +6,7 @@
     <title>Game 2048</title>
 
     <style>
-        body {
+        .center {
             font-family: Arial, Helvetica, sans-serif;
             text-align: center;
         }
@@ -30,7 +30,7 @@
 
         #gameOver {
             position: absolute;
-            top: 45%;
+            top: 48%;
             left: 50%;
             padding: 50px;
             transform: translate(-50%, -50%);
@@ -40,7 +40,7 @@
             color: #fff;
 
             font-size: 40px;
-            font-family:monospace;
+            font-family: monospace;
 
             display: none;
             flex-direction: column;
@@ -49,19 +49,42 @@
         }
 
         .title2048 {
-            font-size: 50px;
+            font-size: 60px;
+
+            color: #ffcc98;
+            text-shadow: 1px 1px 2px black, 0 0 40px #53cce0, 0 0 7px #000181;
+            font-weight: bold;
+        }
+
+        .buttonRule {
+            position: absolute;
+            right: 37%;
+            padding: 4px 20px;
+
+            font-size: 28px;
             font-family: monospace;
 
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #fff;
+            border-radius: 4px;
+            border: 2px solid #8c7e65;
+
+            color: #988f86;
+            background-color: white;
+
+        }
+
+        .cssScore {
+            font-family: monospace;
+            position: absolute;
+            left: 37%;
+            color: #bbada0;
+            font-size: 28px;
+            text-align: left;
         }
 
         .tile {
             width: 90px;
             height: 90px;
             border: 5px solid #bbada0;
-            border-radius: 8px;
-
 
             font-size: 40px;
             font-weight: bold;
@@ -70,7 +93,9 @@
             align-items: center;
         }
 
-
+        .text {
+            resize: none;
+        }
 
         .x2 {
             background-color: #eee4da;
@@ -141,11 +166,42 @@
 
 <body>
 
-    <div class="title2048">2048</div>
-    <hr>
-    <h2 class="">Score: <span id="score">0</span></h2>
-    <div id="board"></div>
-    <div id="gameOver">Game Over!</div>
+
+    <div class="center">
+        <div class="title2048">2048</div>
+        <hr>
+        <span class="cssScore">Score: <span id="score">0</span></span>
+
+        <span>
+            <input type="button" value="Rule" onmouseover="showRule()" onmouseout="hiddenRule()" class="buttonRule">
+        </span>
+        <br>
+        <br>
+        <br>
+        <div id="board"></div>
+        <div id="gameOver">Game Over!</div>
+
+    </div>
+    <br>
+    <p id="text" style="font-family: Arial, Helvetica, sans-serif;">
+
+    </p>
+    <script>
+        function showRule() {
+            document.getElementById('text').innerText = 
+    `LUẬT CHƠI:
+    - Người chơi sử dụng các phím mũi tên và các khối vuông sẽ trượt theo một trong bốn hướng tương ứng (lên, xuống, trái, phải). Mỗi lượt có một khối có giá trị 2 sẽ xuất hiện ngẫu nhiên ở một ô trống trên lưới. 
+    - Các khối vuông trượt theo hướng chỉ định cho đến khi chạm đến biên của lưới hoặc chạm vào khối vuông khác. 
+    - Nếu hai khối vuông có cùng giá trị chạm vào nhau, chúng sẽ kết hợp lại thành một khối vuông có giá trị bằng tổng giá trị hai khối vuông đó.
+    - Khối vuông kết quả không thể kết hợp với khối vuông khác một lần nữa trong một lượt di chuyển. Để dễ nhận biết thì các khối vuông giá trị khác nhau sẽ có màu sắc khác nhau.
+    - Bảng điểm ở góc trên bên trái cho biết điểm của người chơi. Ban đầu điểm bằng 0. Khi hai khối vuông kết hợp thì người chơi sẽ tăng điểm là giá trị khối vuông mới.
+    - Khi không còn nước đi hợp lệ (không còn ô trống và các ô kề nhau đều khác giá trị) thì trò chơi kết thúc.`
+        }
+
+        function hiddenRule() {
+            document.getElementById('text').innerText = ''
+        }
+    </script>
     <script src="game2048.js"></script>
 </body>
 
