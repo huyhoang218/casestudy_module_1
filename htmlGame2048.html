@@ -1,0 +1,117 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game 2048</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        hr {
+            width: 400px;
+        }
+
+        #board {
+            width: 400px;
+            height: 400px;
+
+            background-color: beige;
+            border: 6px solid bisque;
+
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .tile {
+            width: 90px;
+            height: 90px;
+            border: 5px solid bisque;
+
+            font-size: 40px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .x2 {
+            background-color: #eee4da;
+            color: #727371;
+        }
+
+        .x4 {
+            background-color: #ece0ca;
+            color: #727371;
+        }
+
+        .x8 {
+            background-color: #f4b17a;
+            color: #727371;
+        }
+
+        .x16 {
+            color: #727371;
+        }
+
+        .x32 {
+            color: #727371;
+        }
+
+        .x64 {
+            color: #727371;
+        }
+
+        .x128 {
+            color: #727371;
+        }
+
+        .x256 {
+            color: #727371;
+        }
+
+        .x512 {
+            color: #727371;
+        }
+
+        .x1024 {
+            color: #727371;
+        }
+
+        .x2048 {
+            color: #727371;
+        }
+
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            padding: 20px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>2048</h1>
+    <hr>
+    <h2>Score: <span id="score">0</span></h2>
+    <div id="board">
+
+    </div>
+    <div id="gameOver">Game Over!</div>
+    <script src="jsGame2048.js"></script>
+</body>
+
+</html>
